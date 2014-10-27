@@ -5,19 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-import com.android.volley.Response;
 
 import jp.eure.device.R;
-import jp.eure.device.helper.ToastHelper;
-import jp.eure.device.model.User;
-import jp.eure.device.request.UserRequest;
 import jp.eure.device.ui.devices.DeviceCreateFragment;
 import jp.eure.device.ui.devices.DeviceListFragment;
-import jp.eure.device.ui.users.UserCreateFragment;
-import jp.eure.device.ui.users.UserListFragment;
 
 public class MainActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -56,14 +49,6 @@ public class MainActivity extends BaseActivity
             case 2:
                 mTitle = "Device List";
                 fragment = DeviceListFragment.newInstance();
-                break;
-            case 4:
-                mTitle = "User Create";
-                fragment = UserCreateFragment.newInstance();
-                break;
-            case 5:
-                mTitle = "User List";
-                fragment = UserListFragment.newInstance();
                 break;
         }
 

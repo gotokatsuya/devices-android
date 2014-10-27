@@ -18,6 +18,13 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".ui.devices.DeviceDetailActivity"
+            android:label="@string/title_activity_device_detail" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

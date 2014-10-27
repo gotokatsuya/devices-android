@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DeviceCreateFragment">
+
+    <LinearLayout
+        android:id="@+id/create_user"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/username_edit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="username"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/shape_border_bg_edit"
+            android:textColorHint="@color/hint_foreground_material_light"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/user_create_btn"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="Create"
+            android:background="@drawable/shape_radius_button"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/activity_login_user_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/create_user"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:verticalSpacing="8dp"
+        android:background="@color/material_deep_teal_500"/>
+
+
+</RelativeLayout>

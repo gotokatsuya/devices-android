@@ -9,7 +9,9 @@
         android:id="@+id/item_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:textSize="18sp"
+        android:textColor="@color/material_blue_grey_800"
         android:padding="12dp"
         />
 

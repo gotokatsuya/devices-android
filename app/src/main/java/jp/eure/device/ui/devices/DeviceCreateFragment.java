@@ -44,13 +44,21 @@ public class DeviceCreateFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         final EditText nameEdit = getEt(view, R.id.device_name_edit);
+        final EditText manufacturerEdit = getEt(view, R.id.device_manufacturer_edit);
+        final EditText carrierEdit = getEt(view, R.id.device_carrier_edit);
+        final EditText osEdit = getEt(view, R.id.device_os_edit);
+        final EditText sizeEdit = getEt(view, R.id.device_size_edit);
+        final EditText resolutionEdit = getEt(view, R.id.device_resolution_edit);
+        final EditText memoryEdit = getEt(view, R.id.device_memory_edit);
+        final EditText dateOfRelaseEdit = getEt(view, R.id.device_date_of_release_edit);
+        final EditText otherEdit = getEt(view, R.id.device_other_edit);
         Button createBtn = getBtn(view, R.id.device_create_btn);
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = nameEdit.getText().toString();
                 if (!TextUtils.isEmpty(name)) {
-                    DeviceRequest.create(name, null, null, null, null, null, null, 0L, null, new Response.Listener<Device>() {
+                    DeviceRequest.create(getEditText(nameEdit), getEditText(manufacturerEdit), getEditText(carrierEdit), getEditText(osEdit), getEditText(sizeEdit), getEditText(resolutionEdit), getEditText(memoryEdit), 0L, getEditText(otherEdit), new Response.Listener<Device>() {
                         @Override
                         public void onResponse(Device device) {
                             ToastHelper.shortMessage(getActionBarActivity(), device.getName());
@@ -59,5 +67,9 @@ public class DeviceCreateFragment extends BaseFragment {
                 }
             }
         });
+    }
+
+    public String getEditText(EditText inputText) {
+        return inputText.getText().toString();
     }
 }
