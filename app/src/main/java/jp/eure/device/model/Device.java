@@ -21,6 +21,7 @@ public class Device {
     private long dateOfRelease;
     private String other;
     private User user;
+    private ArrayList<DeviceState> deviceStates;
 
     public long getIdentity() {
         return identity;
@@ -134,6 +135,13 @@ public class Device {
         this.user = user;
     }
 
+    public ArrayList<DeviceState> getDeviceStates() {
+        return deviceStates;
+    }
+
+    public void setDeviceStates(ArrayList<DeviceState> deviceStates) {
+        this.deviceStates = deviceStates;
+    }
 
     public static void put(Device device){
         DEVICE_MAP.put(device.getIdentity(), device);
