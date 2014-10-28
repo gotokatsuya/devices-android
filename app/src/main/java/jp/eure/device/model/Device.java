@@ -21,6 +21,7 @@ public class Device {
     private long dateOfRelease;
     private String other;
     private User user;
+    private int status;
 
     public long getIdentity() {
         return identity;
@@ -151,4 +152,20 @@ public class Device {
         }
         return devices;
     }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+/*    public String getStatusText() {
+        if (this.getStatus == Device.RENTED_OUT) {
+            return "貸出中";
+        } else {
+            return "貸出可";
+        }
+    }*/
 }
