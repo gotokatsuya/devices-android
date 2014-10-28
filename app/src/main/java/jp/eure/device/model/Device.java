@@ -22,6 +22,7 @@ public class Device {
     private String other;
     private User user;
     private ArrayList<DeviceState> deviceStates;
+    private boolean state;
 
     public long getIdentity() {
         return identity;
@@ -144,11 +145,17 @@ public class Device {
     }
 
     public static void put(Device device){
+        if (DEVICE_MAP == null){
+            return;
+        }
         DEVICE_MAP.put(device.getIdentity(), device);
     }
 
 
     public static Device get(long identity){
+        if (DEVICE_MAP == null){
+            return null;
+        }
         return DEVICE_MAP.get(identity);
     }
 
@@ -159,4 +166,21 @@ public class Device {
         }
         return devices;
     }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
+    public String getStateText() {
+        if (isState()) {
+            return "貸出中";
+        } else {
+            return "貸出可";
+        }
+    }
+
 }

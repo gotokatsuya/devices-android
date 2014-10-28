@@ -1,15 +1,14 @@
 package jp.eure.device.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by katsuyagoto on 2014/10/25.
+ * Created by takasaki on 2014/10/27.
  */
-public class User {
+public class History {
     public static Map<Long, User> USER_MAP = new HashMap<Long, User>();
     private long identity;
     private String name;
@@ -34,16 +33,10 @@ public class User {
     }
 
     public static void put(User user){
-        if (USER_MAP == null){
-            return;
-        }
         USER_MAP.put(user.getIdentity(), user);
     }
 
     public static User get(long identity){
-        if (USER_MAP == null){
-            return null;
-        }
         return USER_MAP.get(identity);
     }
 
@@ -53,5 +46,4 @@ public class User {
             users.add(user);
         }
         return users;
-    }
-}
+    }}

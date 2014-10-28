@@ -22,7 +22,8 @@ public class DeviceRequest extends BaseRequest {
         CREATE("devices/create"),
         UPDATE("devices/update"),
         LIST("devices/list"),
-        BORROW("devices/borrow");
+        BORROW("devices/borrow"),
+        RETURN("devices/return");
 
         private String method;
 
@@ -191,7 +192,7 @@ public class DeviceRequest extends BaseRequest {
         });
     }
 
-    public static void borrow(final long user_id,
+    public static void borrowDevice(final long user_id,
                               final long device_id ,
                               final Response.Listener<Device> successListener){
         HashMap<String, String> params = new HashMap<String, String>();
@@ -222,4 +223,34 @@ public class DeviceRequest extends BaseRequest {
         });
     }
 
+    public static void returnDevice(final long user_id,
+                              final long device_id ,
+                              final Response.Listener<Device> successListener){
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("user_id", String.valueOf(user_id));
+        params.put("device_id", String.valueOf(device_id));
+        String method = DeviceMethod.RETURN.method;
+        getInstance().post(method, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(final JSONObject response) {
+                ThreadHelper.runInBackground(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject deviceObj = response.getJSONObject("device");
+                            final Device device = DeviceParser.parse(deviceObj);
+                            ThreadHelper.runOnUi(new Runnable() {
+                                @Override
+                                public void run() {
+                                    successListener.onResponse(device);
+                                }
+                            });
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }
 }

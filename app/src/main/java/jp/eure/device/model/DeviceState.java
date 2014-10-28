@@ -10,9 +10,13 @@ public class DeviceState {
     public static Map<Long, DeviceState> DEVICE_STATE_MAP = new HashMap<Long, DeviceState>();
 
     private long identity;
-    private long device_id;
-    private boolean action;
+
+    private long deviceId;
+
+    private boolean state;
+
     private User user;
+
     private long createdAt;
 
     public long getIdentity() {
@@ -23,20 +27,20 @@ public class DeviceState {
         this.identity = identity;
     }
 
-    public long getDevice_id() {
-        return device_id;
+    public long getDeviceId() {
+        return deviceId;
     }
 
-    public void setDevice_id(long device_id) {
-        this.device_id = device_id;
+    public void setDeviceId(long deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public boolean isAction() {
-        return action;
+    public boolean isState() {
+        return state;
     }
 
-    public void setAction(boolean action) {
-        this.action = action;
+    public void setState(boolean state) {
+        this.state = state;
     }
 
     public User getUser() {
@@ -56,11 +60,25 @@ public class DeviceState {
     }
 
     public static void put(DeviceState deviceState){
+        if (DEVICE_STATE_MAP == null){
+            return;
+        }
         DEVICE_STATE_MAP.put(deviceState.getIdentity(), deviceState);
     }
 
     public static DeviceState get(long identity){
+        if (DEVICE_STATE_MAP == null){
+            return null;
+        }
         return DEVICE_STATE_MAP.get(identity);
+    }
+
+    public String getStateText() {
+        if (isState()) {
+            return "貸";
+        } else {
+            return "返";
+        }
     }
 
 }

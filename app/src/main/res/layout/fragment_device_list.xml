@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DeviceCreateFragment">
+
+    <GridView
+        android:id="@+id/fragment_device_list_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        android:background="@color/material_deep_teal_500"
+        android:numColumns="2"/>
+
+</RelativeLayout>

@@ -27,7 +27,8 @@ public class DeviceParser {
         KEY_DATE_OF_RELEASE("dateOfRelease"),
         KEY_OTHER("other"),
         KEY_USER("user"),
-        KEY_DEVICE_STATES("device_states");
+        KEY_DEVICE_STATES("device_states"),
+        KEY_STATE("state");
 
         private String mKey;
 
@@ -120,6 +121,9 @@ public class DeviceParser {
             case KEY_DEVICE_STATES:
                 JSONArray array = obj.getJSONArray(key.getKey());
                 device.setDeviceStates((ArrayList)DeviceStateParser.parse(array));
+                break;
+            case KEY_STATE:
+                device.setState(obj.getBoolean(key.getKey()));
                 break;
         }
     }

@@ -19,7 +19,7 @@ public class DeviceStateParser {
     private enum ParamKeys {
         KEY_ID("id"),
         KEY_DEVICE_ID("device_id"),
-        KEY_ACTION("action"),
+        KEY_STATE("state"),
         KEY_USER("user"),
         KEY_CREATED_AT("createdAt");
 
@@ -83,8 +83,8 @@ public class DeviceStateParser {
             case KEY_DEVICE_ID:
                 deviceState.setIdentity(obj.getLong(key.getKey()));
                 break;
-            case KEY_ACTION:
-                deviceState.setAction(obj.getBoolean(key.getKey()));
+            case KEY_STATE:
+                deviceState.setState(obj.getBoolean(key.getKey()));
                 break;
             case KEY_CREATED_AT:
                 deviceState.setCreatedAt(obj.getLong(key.getKey()));
